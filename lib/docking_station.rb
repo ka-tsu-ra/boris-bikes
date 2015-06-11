@@ -13,6 +13,7 @@ class DockingStation
 
   def release_bike
     fail 'No bikes available' if bikes.empty?
+    fail 'The bike is broken' if bike.broken? == true
     bikes.pop
   end
 
@@ -33,4 +34,7 @@ class DockingStation
     bikes.empty?
   end
 
+  #def non_broken?
+   # THERE ARE SOME BIKES IN THE ARRAY THAT ARE NOT BROKEN
+   
 end
