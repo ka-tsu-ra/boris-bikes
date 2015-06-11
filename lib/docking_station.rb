@@ -12,8 +12,8 @@ class DockingStation
 
 
   def release_bike
-    fail 'No bikes available' if bikes.empty?
-    fail 'The bike is broken' if bike.broken? == true
+    fail 'No bikes available' if empty?
+    fail 'No bikes available' if working_bikes.empty? 
     bikes.pop
   end
 
@@ -21,10 +21,18 @@ class DockingStation
     fail 'Docking station full' if full?
     bikes << bike
   end
+  
+  def working_bikes
+    bikes.select {|bike| bike.working? }
+  end
 
   private
 
   attr_reader :bikes
+
+
+
+
 
   def full?
     bikes.count >= capacity
@@ -36,5 +44,5 @@ class DockingStation
 
   #def non_broken?
    # THERE ARE SOME BIKES IN THE ARRAY THAT ARE NOT BROKEN
-   
+
 end
