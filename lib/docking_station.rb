@@ -23,7 +23,7 @@ class DockingStation
   end
   
   def working_bikes
-    bikes.select {|bike| bike.working? }
+    bikes.select { |bike| bike.working? }
   end
 
   private
