@@ -8,6 +8,8 @@ class DockingStation
   def initialize
     @bikes = []
     @capacity = DEFAULT_CAPACITY
+    @working_bikes = []
+    @broken_bikes = []
   end
 
   def dock bike
