@@ -36,5 +36,10 @@ describe DockingStation  do
     end
   end
 
-  it { is_expected.to respond_to :bikes_into_van }
+  # it { is_expected.to respond_to :bikes_into_van }
+
+  #describe 'bikes_into_van' do
+  #  bike = double :bike, working?: false
+  #  subject.dock bike
+  #  expect(subject.bikes_into_van
 end

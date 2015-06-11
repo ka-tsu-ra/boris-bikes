@@ -1,6 +1,6 @@
-require_relative 'bike'
+# require_relative 'bike'
 
-class DockingStation
+class Van
   DEFAULT_CAPACITY = 20
 
   attr_accessor :capacity
@@ -9,15 +9,15 @@ class DockingStation
     @bikes = []
     @capacity = DEFAULT_CAPACITY
     @working_bikes = []
-  #  @broken_bikes = []
+    @broken_bikes = []
   end
 
-  def dock bike
-    fail 'Docking station full' if full?
+  def accept bike
+    fail 'Van is full' if full?
     bikes << bike
   end
 
-  def release_bike
+  def distribute_bike
     fail 'No bikes available' if empty?
     fail 'No bikes available' if working_bikes.empty? 
     bikes.pop
@@ -27,13 +27,11 @@ class DockingStation
     bikes.select { |bike| bike.working? }
   end
 
-  #def broken_bikes
-  #  bikes.select { |bike| bike.working? == false }
-  #end
+  def broken_bikes
+    bikes.select { |bike| bike.working? == false }
+  end
 
-  #def bikes_into_van
-
-  #end
+  
 
   private
 
@@ -48,7 +46,6 @@ class DockingStation
     bikes.empty?
   end
 
-  #def non_broken?
-   # THERE ARE SOME BIKES IN THE ARRAY THAT ARE NOT BROKEN
+  
 
 end
