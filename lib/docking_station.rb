@@ -8,8 +8,8 @@ class DockingStation
   def initialize
     @bikes = []
     @capacity = DEFAULT_CAPACITY
-    @working_bikes = []
-  #  @broken_bikes = []
+  # @working_bikes = []
+  # @broken_bikes = []
   end
 
   def dock bike
@@ -25,6 +25,9 @@ class DockingStation
   
   def working_bikes
     bikes.select { |bike| bike.working? }
+    # this is done as a method so it is called every time you check
+    # whether there are any working bikes - i.e. in the 
+    # release_bike method.
   end
 
   #def broken_bikes
