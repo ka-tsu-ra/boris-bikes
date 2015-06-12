@@ -20,7 +20,10 @@ class DockingStation
   def release_bike
     fail 'No bikes available' if empty?
     fail 'No bikes available' if working_bikes.empty? 
-    bikes.pop
+    
+    bike_to_release = bikes.find { |bike|} bike.working? }
+    bikes.delete bike_to_release
+
   end
   
   def working_bikes
@@ -28,6 +31,9 @@ class DockingStation
     # this is done as a method so it is called every time you check
     # whether there are any working bikes - i.e. in the 
     # release_bike method.
+    # Easier not to have an array of working bikes because
+    # that would have to be added to and removed from every
+    # time doc or release happens.
   end
 
   #def broken_bikes
